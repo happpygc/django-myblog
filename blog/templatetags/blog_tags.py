@@ -10,7 +10,7 @@ register = template.Library()
 
 @register.simple_tag
 def get_recent_posts(num=5):
-    print(Post.objects.all())
+#     print(Post.objects.all())
 #     return Post.objects.all()
     return Post.objects.all().order_by('-created_time')[:num]
 
