@@ -2,6 +2,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+import markdown2
+from django.utils.html import strip_tags
 
 class Category(models.Model):
     """
@@ -9,7 +11,7 @@ class Category(models.Model):
     Category 只需要一个简单的分类名 name 就可以了。
     CharField 指定了分类名 name 的数据类型，CharField 是字符型，
     CharField 的 max_length 参数指定其最大长度，超过这个长度的分类名就不能被存入数据库。
-    当然 Django 还为我们提供了多种其它的数据类型，如日期时间类型 DateTimeField、整数类型 IntegerField 等等。
+            当然 Django 还为我们提供了多种其它的数据类型，如日期时间类型 DateTimeField、整数类型 IntegerField 等等。
     Django 内置的全部类型可查看文档：
     https://docs.djangoproject.com/en/1.10/ref/models/fields/#field-types
     """
@@ -71,3 +73,64 @@ class Post(models.Model):
     # 这里我们通过 ForeignKey 把文章和 User 关联了起来。
     # 因为我们规定一篇文章只能有一个作者，而一个作者可能会写多篇文章，因此这是一对多的关联关系，和 Category 类似。
     author = models.ForeignKey(User)
+    read_counts = models.PositiveIntegerField(default=0)
+    
+    def increase_read_counts(self):
+        self.read_counts+=1
+        self.save(update_fields=['read_counts'])
+    
+    comment_counts = models.PositiveIntegerField(default=0) 
+    
+    def increase_comment_counts(self):
+        self.comment_counts +=1
+        self.save(update_fields=['comment_counts'])
+       
+    def save(self,*args,**kwargs): 
+        if not self.excerpt:
+            if len(self.body)<80:
+                ect = self.body
+            else:
+                ect = self.body[:80]
+                
+            ex =  markdown2.markdown(ect,extras=
+                       ["fenced-code-blocks", 
+                        "cuddled-lists",
+                        "metadata", 
+                        "tables",
+                        "spoiler",
+                        ],)
+            self.excerpt = strip_tags(ex)
+        super(Post,self).save(*args,**kwargs) 
+class Comment(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    #url = models.URLField(black = True) 
+    text = models.TextField()
+    created_time =models.DateTimeField(auto_now_add = True) 
+    post = models.ForeignKey('blog.Post')
+    def __str__(self):
+        return self.text[:20]  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

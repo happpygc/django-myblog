@@ -1,23 +1,27 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Black &amp; White</title>
+		  <title>Eric'blog</title>
 
-		<!-- meta -->
-		<meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	    <!-- css -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/ionicons.min.css">
-		<link rel="stylesheet" href="css/pace.css">
-	    <link rel="stylesheet" href="css/custom.css">
-
-	    <!-- js -->
-	    <script src="js/jquery-2.1.3.min.js"></script>
-	    <script src="js/bootstrap.min.js"></script>
-	    <script src="js/pace.min.js"></script>
-	    <script src="js/modernizr.custom.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
+    
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+   
+   <link rel="stylesheet" href="{% static 'blog/css/pace.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}">
+	<link rel="stylesheet" href="{% static 'blog/css/highlights/github.css' %}">
+    <!-- js -->
+    <script src="{% static 'blog/js/jquery-2.1.3.min.js' %}"></script>
+    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'blog/js/pace.min.js' %}"></script>
+    <script src="{% static 'blog/js/modernizr.custom.js' %}"></script>
 	</head>
 
 	<body id="page">
@@ -26,7 +30,7 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-5 col-xs-8">
 						<div class="logo">
-							<h1><a href="index.html"><b>Black</b> &amp; White</a></h1>
+							<h1><a href="index.html"><b>Eric</b></a></h1>
 						</div>
 					</div><!-- col-md-4 -->
 					<div class="col-md-8 col-sm-7 col-xs-4">
@@ -38,13 +42,13 @@
 							</div>
 
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  								<ul class="nav navbar-nav navbar-right">
-    								<li class="cl-effect-11"><a href="index.html" data-hover="Home">Home</a></li>
-    								<li class="cl-effect-11"><a href="full-width.html" data-hover="Blog">Blog</a></li>
-    								<li class="cl-effect-11"><a href="about.html" data-hover="About">About</a></li>
-    								<li class="cl-effect-11"><a href="contact.html" data-hover="Contact">Contact</a></li>
-  								</ul>
-							</div><!-- /.navbar-collapse -->
+		                        <ul class="nav navbar-nav navbar-right">
+		                           <li class="cl-effect-11"><a href="{% url 'blog:index' %}" data-hover="Home">Home</a></li>
+									<li class="cl-effect-11"><a href="{% url 'blog:index' %}" data-hover="Blog">Blog</a></li>
+									<li class="cl-effect-11"><a href="{% url 'blog:about' %}" data-hover="About">About</a></li>
+									<li class="cl-effect-11"><a href="{% url 'blog:contact' %}" data-hover="Contact">Contact</a></li>
+		                        </ul>
+		                    </div><!-- /.navbar-collapse -->
 						</nav>
 						<div id="header-search-box">
 							<a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
@@ -68,11 +72,56 @@
 						<article class="post">
 							<div class="entry-content clearfix">
 								<figure class="img-responsive-center">
-									<img class="img-responsive" src="img/me.jpg" alt="Developer Image">
+									<img class="img-responsive" src="{% static 'blog/img/me.jpg' %}" alt="Developer Image">
 								</figure>
-								<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly.</p>
-								<p>Responsive web design offers us a way forward, finally allowing us to design for the ebb and flow of things. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly.</p>
-								<div class="height-40px"></div>
+								
+								<p>如果想要更多的了解下我，其实真实的我平时除了善解人意、细心、勇敢、随和、乐于助人、上进、体贴、诚实、淳朴、热心、有爱心、孝顺、执着、有责任感、认真、大方、健谈、有想象力、有气质、长得帅，代码写的好之外，就没啥太多优点了，那么今天就简单的做下自我介绍吧，相信看完之后你们更不了解我了！</p>
+
+<h3>一句话总结</h3>
+<p>很多人问我为什么这么优秀，我想了一晚上没想通，究竟是谁走漏了风声。</p>
+
+<h3>我的大学</h3>
+<p>大一时期风华正茂，指点江山，一心佳丽三千。</p>
+<p>大三之后削发立志，遁入空门，只愿科技人间。</p>
+
+<h3>我很帅</h3>
+<p>说起来也挺尴尬的，刚才用手机拍风景，以为拍到了金城武… 后来才发现，开的是前置摄像头！</p>
+
+<h3>最喜欢做的事</h3>
+<p>看别人秀恩爱，心中默念，尼玛还不分！</p>
+
+<h3>关于高考</h3>
+<p>昨天一要高考的小辈问我，明天高考，但是明天凌晨是欧冠决赛，要不要看？我劝他，你还小，这不是儿戏，建议你冷静点，毕竟高考可以复读重来，但明年可能就不是这两队了。</p>
+
+<h3>我的爱情观</h3>
+<p>并不是所有女人都喜欢钱，也有一些善良的女人喜欢小动物。</p>
+<p>比如：路虎、捷豹、野马、宝马、悍马，当然还有天猫。</p>
+
+<h3>我的婚姻状态</h3>
+<p>至今深陷单身债务,急需一个善良妹子救济。</p>
+
+<h3>我的价值观</h3>
+<p>人这一生，贵在追求和坚持。我一路打拼下来，看着自己手里的20万变成500万，再从500万变成1000多万。我想要告诉大家的是：手机像素越高，拍出来的照片越清晰。</p>
+
+<h3>目前职业 </h3>
+<p>上计所在读研究生</p>
+
+<h3>梦想职业</h3>
+<p>成为一名最会编程的段子手！</p>
+<h3>终极梦想</h3>
+<p>保护妹子，维护世界和平!</p>
+
+
+<h3>我的踪迹</h3>
+<p>博客: <a href="http://www.sict.club/blog"> www.sict.club/blog</a></p>
+<p>我就是我，不一样的烟火！</p>
+
+<p>如果觉得不错，不妨分享给你的朋友们。</p>
+<h3>求打赏</h3>
+<p>如果被我的梦想感动了，顺便打赏支持我，为维护世界和平尽点微薄之力！</p>
+<img class="img-money" src="{% static 'blog/img/money.png' %}"">
+<p>最后，以上都是抄的，不信你扫个码试试？哈哈哈哈</p>
+								<!--<div class="height-40px"></div>
 								<h2 class="title text-center">Social</h2>
 								<ul class="social">
 									<li class="facebook"><a href="#"><span class="ion-social-facebook"></span></a></li>
@@ -80,7 +129,7 @@
 									<li class="google-plus"><a href="#"><span class="ion-social-googleplus"></span></a></li>
 									<li class="tumblr"><a href="#"><span class="ion-social-tumblr"></span></a></li>
 								</ul>
-							</div>
+							</div>-->
 						</article>
 					</main>
 				</div>
@@ -90,7 +139,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<p class="copyright">&copy; 2014 ThemeWagon.com</p>
+						<p class="copyright">&copy; 2017 ThemeWagon.com</p>
 					</div>
 				</div>
 			</div>

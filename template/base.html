@@ -35,6 +35,7 @@
                 </div>
             </div><!-- col-md-4 -->
             <div class="col-md-8 col-sm-7 col-xs-4">
+            	
                 <nav class="main-nav" role="navigation">
                     <div class="navbar-header">
                         <button type="button" id="trigger-overlay" class="navbar-toggle">
@@ -44,9 +45,9 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                           <li class="cl-effect-11"><a href="#" data-hover="Home">Home</a></li>
-							<li class="cl-effect-11"><a href="#" data-hover="Blog">Blog</a></li>
-							<li class="cl-effect-11"><a href="#" data-hover="About">About</a></li>
+                           <li class="cl-effect-11"><a href="{% url 'blog:index' %}" data-hover="Home">Home</a></li>
+							<li class="cl-effect-11"><a href="{% url 'blog:index' %}" data-hover="Blog">Blog</a></li>
+							<li class="cl-effect-11"><a href="{% url 'blog:about' %}" data-hover="About">About</a></li>
 							<li class="cl-effect-11"><a href="#" data-hover="Contact">Contact</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -88,6 +89,10 @@
 				    	{% endfor %}
 				    </ul>
 				</div>
+				
+				{% block pag %}
+                {% endblock pag %}
+				
                 {% block toc%}
                 {% endblock toc%}
                 <div class="widget widget-archives">

@@ -25,7 +25,7 @@ SECRET_KEY = 'b#-ipu44oaqr9*%c6npj(6t6a^^7o8ov_f-zia(e$1rhkrxr(&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','.sict.club']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','.sict.club','0.0.0.0','192.168.1.16']
 
 
 # Application definition

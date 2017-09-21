@@ -9,8 +9,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class TagAdmin(admin.ModelAdmin):
     list_display = ['pk','name']
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['pk','name','email','created_time','text']
 
 
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(Tag,TagAdmin)
 admin.site.register(Post,PostAdmin)
+admin.site.register(Comment,CommentAdmin)
